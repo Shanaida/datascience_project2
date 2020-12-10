@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Macroeconomic Trends and Stocks Dashboard Dash Page</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+        <script src="https://code.highcharts.com/highcharts.js"></script>
+        <script src="https://code.highcharts.com/stock/highstock.js"></script>
+        <script src="https://code.highcharts.com/stock/modules/data.js"></script>
+        <script src="https://code.highcharts.com/modules/data.js"></script>
+        <script src="https://code.highcharts.com/highcharts-more.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <img src="Images/logo.png" class="logo">
+                <nav> 
+                    <ul id="menuList">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Dashboard.html">Dashboard</a></li>
+                        <li><a href="StockApi.html">Stock API</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </nav>
+                <img src="Images/menu.png" class="menu-icon" 
+                onclick="togglemenu()">
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <h2>Macroeconomic and Stock Data Visualization Dashboard</h2>
+                    <h3>This dashboard contains data visualizations of historical stock data 
+                      for GOLD, IXIC and GSPC Indexes. You will also find data visulizations 
+                      for Macroeconomic data indicators.  
+                    </h3>
+                    <p>The different charts on the dashboard have different functionalities.
+                      You can hover over each chart to get specific data point information.</p> 
+                    <div> 
+                      <ul id="functionality">
+                        <li>You may be able to filter by de-selecting/selecting specific variables
+                          from the legend in order to get a micro-view of that variable's data.</li>
+                          <li>You may be able to zoom-in and zoom-out by double-clicking on the chart.</li>
+                          <li>You may be able to move left and right when viewing a chart with the help of a scroll-bar if it appears.</li>
+                      </ul>
+                    </div>
+                </div>
+            </div>
+            <style>
+                .grid-container {
+                  display: grid;
+                  grid-gap: 8px;
+                  grid-template-columns: auto auto;
+                  grid-template-rows: auto auto auto auto auto auto;
+                  background-color: #7831fcb2;
+                  padding: 5px;
+                }
+                #plotly-1{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 30px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #plotly-2{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #plotly-3{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #plotly-4{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #plotly-5{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #plotly-6{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #candlestick{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 50;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #highcharts-1{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 40;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                #highcharts-2{
+                  background-color: rgba(255, 255, 255, 0.8);
+                  border: 1px solid rgba(0, 0, 0, 0.8);
+                  padding: 5px;
+                  grid-column: span 1;
+                  grid-row: span 40;
+                  font-size: 18px;
+                  text-align: center;
+                  justify-content: space-between;
+                }
+                .grid-container2 {
+                  display: grid;
+                  grid-gap: 8px;
+                  grid-template-columns: auto auto;
+                  grid-template-rows: auto;
+                  background-color: #7831fcb2;
+                  padding: 5px;
+                }
+            </style> 
+                <div class="grid-container">
+                  <div id="plotly-1"></div>
+                  <div id="plotly-6"></div>  
+                  <div id="plotly-2"></div>
+                  <div id="plotly-3"></div>
+                  <div id="plotly-4"></div>
+                  <div id="candlestick"></div> 
+                </div>
+                <div class="grid-container2">
+                  <div id="highcharts-1"></div> 
+                  <div id="highcharts-2"></div>
+                </div>
+        </div>  
+    </body>
+    <script src="js/gold-plotlybar.js"></script>
+    <script src="js/ixic-plotlybar.js"></script>
+    <script src="js/gspc-plotlybar.js"></script>
+    <script src="js/high-compare-plotly.js"></script>
+    <script src="js/low-compare-plotly.js"></script>
+    <script src="js/highchart-line.js"></script>
+    <script src="js/highchart-bubble.js"></script>
+    <script src="js/candlestick.js"></script>
+</html>

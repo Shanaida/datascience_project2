@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Macroeconomic Trends and Stocks Dashboard Home Page</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <img src="Images/logo.png" class="logo">
+                <nav> 
+                    <ul id="menuList">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Dashboard.html">Dashboard</a></li>
+                        <li><a href="StockApi.html">Stock API</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </nav>
+                <img src="Images/menu.png" class="menu-icon" 
+                onclick="togglemenu()">
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <h3>Project Overview:</h3>
+                    <p> Our team has chosen this topic for our second project because it’s of our 
+                        interest to visualize historical macroeconomic and stock data with our current economic 
+                        market state in mind. We have decided to implement this type of data on this
+                        website by creating a dashboard page that hosts great visualizations. During this project's
+                        implementation, we learned about the HighCharts js library and used it to script some charts
+                        for our dashboard. </p>
+                        
+                    <p> To account for user interaction, we have allowed for user functions on the 
+                        views/filter of the graphs. We have also created the Stock API page, where
+                        a user can input a stock symbol in order to get more information about that
+                        stock. We had a lot of fun working on this project and hope you enjoy the content! </p>
+                    <h4> Navigating the Website:</h4>
+                    <h4 <ul> 
+                        <li> Home- Homepage of website and project overview information</li>
+                        <li> Dashboard- Dashboard page with visualizations of macroeceonmic data and stock data</li>
+                        <li> Stock API- Stock API page where user can search for a stock's quote information</li>
+                        <li> Resources- Resource page with links to GitHub Repository and datasets/API used</li>
+                     </ul> </h4>
+                </div>
+                <div class="col-2">
+                    <img src="Images/controller.png" class="controller">
+                    <div class="color-box"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="js/nav_menu_list.js"></script>
+</html>
