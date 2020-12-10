@@ -9,13 +9,11 @@
         <script src="https://d3js.org/d3.v5.min.js"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
-        <style>
-            .bar.apples { fill: green; }
-            .bar.oranges { fill: orange; }
-            .bar.bananas { fill: yellow; }
-            .bar.plums { fill: purple; }
-        </style>    
-    </head>
+        <!-- Load React. -->
+        <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+       </head>
     <body>
         <div class="container">
             <div class="navbar">
@@ -46,7 +44,10 @@
                     <p id="stats"></p>
                     <br> </br>
             </div>
-        </div>  
-    </body>
+        </div>
+            <!-- We will put our React component inside this div. -->
+                <div id="Stock.js"></div>
+  </body>
     <script src="js/stockapi.js"></script>
+    <script src="Stock.js"></script>
 </html>
