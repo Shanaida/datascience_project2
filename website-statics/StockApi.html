@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial scale=1.0">
+        <title>Macroeconomic Trends and Stocks Dashboard StockApi Page</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.9.7/d3.min.js"></script>
+        <style>
+            .bar.apples { fill: green; }
+            .bar.oranges { fill: orange; }
+            .bar.bananas { fill: yellow; }
+            .bar.plums { fill: purple; }
+        </style>    
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar">
+                <img src="Images/logo.png" class="logo">
+                <nav> 
+                    <ul id="menuList">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="Dashboard.html">Dashboard</a></li>
+                        <li><a href="StockApi.html">Stock API</a></li>
+                        <li><a href="Resources.html">Resources</a></li>
+                    </ul>
+                </nav>
+                <img src="Images/menu.png" class="menu-icon" 
+                onclick="togglemenu()">
+            </div>
+            <div class="row">
+                <div class="col-1">
+                    <h2>Stock Quote Search</h2>
+                    <h3>1. Type in the Stock Symbol in the search box and click on Search</h3>
+                    <h3>2. A JSON object string of the Stock's Quote will display as a result</h3>
+                    <h3>3. Copy the JSON object string for your own use!</h3>
+                    <h3></h3>
+                    <input type="text" id="stock-input" placeholder="Stock Symbol">
+                    <br> </br>
+                    <button type="submit" id="stockbtn" onclick="myFunction()">Search</button>
+                    <br> </br>  
+                    <p id="demo"></p>
+                    <p id="stats"></p>
+                    <br> </br>
+            </div>
+        </div>  
+    </body>
+    <script src="js/stockapi.js"></script>
+</html>
